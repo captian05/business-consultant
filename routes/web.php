@@ -37,9 +37,7 @@ Route::post('/book-consultation', [WebsiteController::class, 'storeConsultation'
 |--------------------------------------------------------------------------
 */
 
-Route::get('/dashboard', [DashboardController::class, 'index'])
-    ->middleware(['auth', 'admin'])
-    ->name('dashboard');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -52,10 +50,12 @@ Route::middleware(['auth', 'admin'])
     ->name('admin.')
     ->group(function () {
 
+        Route::get('/dashboard', [DashboardController::class, 'index'])
+            ->name('dashboard');
+
         Route::get('/consultations', [ConsultationController::class, 'index'])
             ->name('consultations');
     });
-
 /*
 |--------------------------------------------------------------------------
 | Profile Routes (Optional – Admin only)

@@ -11,6 +11,6 @@ class DashboardController extends Controller
     public function index()
     {
         $consultations = Consultation::latest()->get();
-        return view('dashboard', compact('consultations'));
+        return view('admin.dashboard', compact('consultations'));
     }
 }
